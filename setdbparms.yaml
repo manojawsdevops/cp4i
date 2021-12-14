@@ -1,8 +1,10 @@
 apiVersion: appconnect.ibm.com/v1beta1
 kind: Configuration
 metadata:
-  name: setdbparms-conf
-  namespace: <namespace>
-spec: 
+  name: setdbp-conf
+  namespace: mynamespace
+spec:
   contents: <content>
+  data: ABCDefghIJLOMNehorewirpewpTEV843BCDefghIJLOMNorewirIJLOMNeh842lkalkkrmwo4tkjlfgBCDefghIJLOMNehhIJLOM
+  description: Stores the IBM Cloud API key for productapi
   type: setdbparms
