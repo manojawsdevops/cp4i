@@ -52,6 +52,7 @@ jobs:
      - name: Build the Docker image1
        run: docker build -t cp4i:v1 --file Dockerfile .
             docker tag cp4i:vi manojreddyeidiko/cp4i
+            docker push manojreddyeidiko/cp4i:latest
      - name: oc login,oc project,Docker tag &push
        run: |
         /usr/local/bin/ && ./oc login -u $OC_USERNAME -p $OC_PASSWORD --insecure-skip-tls-verify=true
