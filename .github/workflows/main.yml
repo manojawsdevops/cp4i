@@ -48,15 +48,17 @@ jobs:
         OC_USERNAME: ${{secrets.OC_USERNAME}}
         OC_PASSWORD: ${{secrets.OC_PASSWORD}}
        run: |
-         docker login -u $DOCKER_USER -p $(oc whoami -t) default-route-openshift-image-registry.apps.ocp4.6.eidikointernal.com
+         docker login -u manojreddyeidiko -p Ashwanth@8801
      - name: Build the Docker image1
-       run: docker build -t image:v1 --file dockerlog . 
+       run: docker build -t cp4i:v1 --file Dockerfile .
+            docker tag cp4i:vi manojreddyeidiko/cp4i
      - name: oc login,oc project,Docker tag &push
        run: |
         /usr/local/bin/ && ./oc login -u $OC_USERNAME -p $OC_PASSWORD --insecure-skip-tls-verify=true
         /usr/local/bin/ && ./oc project manoj
-        docker tag image:v1 default-route-openshift-image-registry.apps.ocp4.6.eidikointernal.com/manoj/devopsimage:v1
-        docker push default-route-openshift-image-registry.apps.ocp4.6.eidikointernal.com/manoj/devopsimage:v1
-        /home/bandaru/Downloads/devshift.sh
-  
+        /usr/local/bin/oc new-app --docker-image=manojreddyeidiko/cp4i:latest -e LICENSE=accept 
+        /usr/local/bin/oc create route passthrough devopsimage --service=devopsimage --port=7843
+
+
+          
         
