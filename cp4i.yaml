@@ -14,7 +14,7 @@ spec:
       - name: github-app-connect-registry
     containers:
     runtime:
-      image: 
+      image: <image>
         resources:
           limits:
             cpu: 900m
